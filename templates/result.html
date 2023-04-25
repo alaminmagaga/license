@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>License Plate Recognition</title>
+</head>
+<body>
+    {% if text %}
+        <h1>License plate text:</h1>
+        <p>{{ text }}</p>
+    {% else %}
+        <h1>No license plate found</h1>
+    {% endif %}
+    <a href="{% url 'upload' %}">Try again</a>
+</body>
+</html>

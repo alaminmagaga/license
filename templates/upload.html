@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Extract License Plate - Demo</title>
+</head>
+<body>
+    <h1>Extract License Plate</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="image">Upload image:</label>
+        <input type="file" name="image" required><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if image_path %}
+        <h2>Uploaded Image</h2>
+        <img src="{{ image_path }}" alt="uploaded image" width="500">
+
+        {% if result %}
+            <h2>Result</h2>
+            <p>{{ result }}</p>
+            <img src="cropped.jpg" alt="cropped image" width="400">
+        {% endif %}
+    {% endif %}
+</body>
+</html>
